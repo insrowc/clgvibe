@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>clgvibe - Notification</title>
+    <link rel="icon" type="image/svg-xml" href="./img/favicn.png" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: sans-serif;
+      }
+      .user-details {
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 1rem;
+        background-color: #f93;
+        color: white;
+        text-align: right;
+      }
+      .user-details .img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 70px;
+        width: 70px;
+        object-fit: contain;
+        border: 3px solid white;
+        border-radius: 50%;
+        overflow: hidden;
+
+      }
+      .user-details .img img{
+        height: 90px;
+      }
+      .user-details > div{
+        text-align: center;
+        margin-left: 20px;
+      }
+      .user-details h2 {
+        font-weight: bold;
+        letter-spacing: 3px;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+      }
+      .notification {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 1rem;
+        border-bottom: 1px solid lightgray;
+      }
+      .notification > div.img {
+        margin-right: 1.5rem;
+        width: 60px;
+      }
+      .notification img {
+        width: 100%;
+      }
+      .mark-as-read {
+        display: block;
+        width: 20%;
+        margin: 1rem auto;
+        cursor: pointer;
+        color: #f93;
+        min-width: 200px;
+        background-color: #fff;
+        border: 2px solid #f93;
+        outline: none;
+        padding: 0.5rem 0;
+        letter-spacing: 2px;
+        font: 1.1rem bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- user details -->
+
+    <div class="user-details">
+      <a href="/profile" class="img">
+      <img src="{{user.files.0.destination}}/{{user.files.0.originalname}}" alt="" />
+      </a>
+      <div>
+        <h2>{{ user.fullName }}</h2>
+        <p>{{ user.collegeName }}
+
+        </p>
+      </div>
+    </div>
+    <!-- mark all as read -->
+    <button class="mark-as-read" onclick="notificationsRead()">Mark all as Read</button>
+    <!-- mark all as read script -->
+    <script>
+      const notificationsRead = () =>{
+        fetch("/notificationread");
+      }
+    </script>
+    <!-- all notifiction -->
+    <div class="all-notification"></div>
+    <!-- get notificatin script -->
+    <script>
+      const allNotifications = document.querySelector(".all-notification");
+
+      const getNotify = () => {
+        fetch("/getnotifications")
+          .then((res) => res.json())
+          .then((res) => {
+            if (res) {
+              allNotifications.innerHTML = "";
+              res.map((item) => {
+                let notification = `
+                    <div class="notification">
+                        <div class="img">`;
+                item.src !== ""
+                  ? (notification += `<img src="${item.src}"/>`)
+                  : (notification += ``);
+                notification += `</div>
+                        <div class="content">
+                            <p>
+                               <b>${item.name}</b> ${item.message}
+                            </p>
+                        </div>
+                    </div>
+                    `;
+                allNotifications.innerHTML += notification;
+              });
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+      setInterval(getNotify, 1000);
+    </script>
+  </body>
+</html>

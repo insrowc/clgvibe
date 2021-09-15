@@ -1,0 +1,145 @@
+
+/* import fonts from fonts.css file */ 
+@import url(./fonts.css);
+
+/* box */ 
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+/* css variables */ 
+@import url(./partials/_variables.css);
+
+/* import global styling */ 
+@import url(./partials/_global.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+
+:root {
+    font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html{
+	scroll-behavior: smooth;
+  }
+  
+  ::selection{
+	border-radius: 80px;
+	background-color: #fd5f03e0;
+  }
+  
+  ::-webkit-scrollbar{
+	border-radius: 80px;
+	width: 10px;
+	background-color: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+	border-radius: 80px;
+	background-color: #fd5f03de;
+  }
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    min-height: 100vh;
+    background-image: url(/img/back.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font: normal 500 30px;
+    color: #262626;
+    padding-bottom: 3rem;
+}
+
+.profile{
+    display: flex;
+    justify-content: center;
+    padding: 12px 15px 17px 225px;
+}
+.profile-image{
+    height: 233px;
+    width: 233px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-image > img{
+    width: 100%;
+    height: 100%;
+}
+.profile-user-settings{
+    margin-left: 100px;
+}
+.editprof{
+    display: flex;
+    align-items: center;
+    margin-top: 96px;
+}
+.btn{
+  padding: 5px;
+  height: 30px;
+  margin-left: 12px;
+  border: none;
+  background: #fff;
+}
+.profile-bio{
+  text-align: center;
+}
+.profile-stats>ul{
+  padding: 0px;
+}
+.profile-stats>ul>li{
+  list-style: none;
+  font-size: 15px;
+}
+.text-center{
+  text-align: center;
+  font-size: large;
+}
+.gallery-items{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  padding: 0px;
+  position: relative;
+}
+.gallery-items> li{
+  list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width: 40rem){
+ .profile{
+   align-items: center;
+   padding: 35px 5px;
+ }
+  .profile-image{
+    height: 127px;
+    width: 127px;
+  }
+  .editprof{
+    margin-top: 35px;
+  }
+  .profile-stats{
+    margin-bottom: 35px;
+  }
+  .gallery-items{
+    display: flex;
+    flex-flow: wrap-reverse;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .gallery-items>li{
+    margin-bottom: 10px;
+  }
+
+
+}

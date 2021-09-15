@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/clg.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+    <title>Document</title>
+</head>
+<style>
+    :focus-visible{
+        outline: none;
+    }
+    .container{
+        display: flex;
+    }
+    .search-box{
+        display: flex;
+        margin: 10px auto;
+        background: #ffffff;
+        padding: 5px 28px;
+        width: 49%;
+        border-radius: 10px;
+        box-shadow: 5px 4px 5px #ccc;
+
+
+    }
+    .search-box i{
+        margin: auto;
+    }
+    .course{
+        width: 100%;
+    }
+    .search-box input{
+        border: none;
+        padding: 5px;
+        font-size: 15px;
+        width: 90%;
+        background: none;
+    }
+    .courses-container{
+        display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+</style>
+<body>
+    <div class="container">
+  <div class="search-box">
+              {{!-- <h5> Search Notes</h5> --}}
+              <i class="fa fa-search"></i>
+              <input type="text" id="searchbar" type="search"  onkeyup="search_animal()" placeholder="Search for friends " aria-label="Search" name="search">
+            
+          </div>
+          </div>
+   <div class="courses-container">
+        {{#each users}}
+            <div class="course userx">
+                <div class="course-preview">
+                    <a href="/friendsprofile?username={{this.userName}}">
+                        <img src="{{this.files.0.destination}}/{{this.files.0.originalname}}" alt="profile" ></a>
+                </div>
+                <div class="course-info">
+                    <h6 style="text-align: center; margin-top:0px">{{this.collegeName}}</h6>
+                    <a style="text-decoration:none;color:black" href="/friendsprofile?username={{this.userName}}">
+                        <h2 class="userxname">{{this.userName}}</h2>
+                    </a>
+                    <a href="/chat?username={{this._id}}" style="text-decoration:none;"><button class="btn">chat</button></a>
+                </div>
+            </div>
+        {{/each}}
+        </div>
+        
+</body>
+</html>

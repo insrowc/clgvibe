@@ -1,0 +1,279 @@
+
+/* import fonts from fonts.css file */ 
+@import url(./fonts.css);
+
+/* box */ 
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+/* css variables */ 
+@import url(./partials/_variables.css);
+
+/* import global styling */ 
+@import url(./partials/_global.css);
+
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+html{
+	scroll-behavior: smooth;
+  }
+  
+  ::selection{
+	border-radius: 80px;
+	background-color: #fd5f03e0;
+  }
+  
+  ::-webkit-scrollbar{
+	border-radius: 80px;
+	width: 10px;
+	background-color: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+	border-radius: 80px;
+	background-color: #fd5f03de;
+  }
+
+* {
+  box-sizing: border-box;
+  font: normal 500 15px/2px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body { 
+  /* background: url(../img/images/p2.png) no-repeat,url(../img/images/p5.png) no-repeat; */
+  background-position: 0% 0%, 100% 100%;
+  background-attachment: fixed;
+  color: #000000;
+  font-family: 'Source Sans Pro', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  /* background: url(../img/images/p2.png) no-repeat,url(../img/images/p5.png) no-repeat; */
+  background-position: 0% 0%, 100% 100%;
+  background-attachment: fixed;
+  border-radius: 10px;
+  /* box-shadow: 0 5px 10px #d8d8d8; */
+  padding: 100px;
+  margin: auto;
+}
+
+.user {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.user i {
+  background-color: #ffc98f;
+  color: #000;
+  font-size: inherit;
+  padding: 10px;
+  border-radius: 50%;
+}
+.input-div{
+  position: relative;
+    margin: 25px 0;
+    padding: 0px 0;
+    padding-top: 10px;
+    width: 100%;
+    border-bottom: 2px solid #d9d9d9;
+  }
+  .input-div > div{
+    position: relative;
+  height: 29px;
+  }
+  
+  .input-div > div > h5{
+  position: absolute;
+    left: 10px;
+    top: -5px;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 15px;
+  transition: .3s;
+  }
+  
+  .input-div:before, .input-div:after{
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: #ff8b0f;
+  transition: .4s;
+  }
+  
+  .input-div:before{
+  right: 50%;
+  }
+  
+  .input-div:after{
+  left: 50%;
+  }
+  
+  .input-div.focus:before, .input-div.focus:after{
+  width: 50%;
+  }
+  
+  .input-div.focus > div > h5{
+  top: -40px;
+  font-size: 15px;
+  }
+  
+  .input-div > div > input{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.2rem 0.7rem;
+  font-size: 1.2rem;
+  color: #555;
+  font-family: 'poppins', sans-serif;
+  }
+
+  input:-internal-autofill-selected {
+    background: transparent;
+  }
+
+.search-area {
+  padding: 20px 10px;
+}
+select:-internal-list-box{
+padding: 10px 5px;
+}
+.search-area .filter button {
+  cursor: pointer;
+  padding: 1px 15px;
+  font-size: 17px;
+  background-color: #f93;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+option{
+  padding: 10px 4px;
+}
+.search-area .filter button:hover {
+  background-color: #ffaf7a;
+  border-color: #0000006c;
+}
+
+table {
+  border-radius: 50px;
+  color: #000000;
+  padding: 10px;
+  width: 100%;
+}
+
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+  line-height: 15px;
+}
+
+
+table tbody tr {
+  background-color: #f93;
+}
+
+table tbody tr td:first-of-type {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+table tbody tr td:last-of-type {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  text-align: center;
+}
+
+
+table tbody tr td .fa-circle {
+  transform: scale(0.5);
+}
+
+table tbody tr.priority-200 td .fa-circle {
+  color: #9c7c64;
+}
+
+table tbody tr.priority-300 td .fa-circle {
+  color: #5c8cdc;
+}
+
+table tbody tr.priority-600 td .fa-circle {
+  color: #40c587;
+}
+
+.delete {
+  cursor: pointer;
+  /* background-color: #242c4c; */
+  border: 0;
+  border-radius: 2px;
+  /* color: #909090; */
+  font-size: 16px;
+  padding: 5px 10px;
+  /* opacity: 0; */
+}
+
+table tbody tr:hover .delete {
+  opacity: 1;
+}
+
+.add-btn {
+  cursor: pointer;
+  float: right;
+  padding: 2px 15px;
+  font-size: 17px;
+  margin-top: 15px;
+  margin-right: 10px;
+  background-color: #f93;
+  /* background-image: linear-gradient(326deg, #eb5f02 0%, #ffa69e 74%); */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.add-btn i{
+  color: #ffffffcf;
+}
+
+.add-btn i:hover{
+  color: #2d292d82;
+}
+
+@media (max-width: 768px) {
+  body{
+    display: block;
+  }
+  .container {
+    padding: 20px;
+    width: 100%;
+  }
+
+  table tbody tr .delete {
+    opacity: 1;
+  }
+
+  table th,
+  table td{
+    padding: 0px;
+    text-align: center;
+  }
+  table td{
+    color: #fff;
+  }
+}

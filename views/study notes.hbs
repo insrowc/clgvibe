@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/study notes.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
+    <title>Study Notes</title>
+
+    <meta name="description" content= "clgvibe - A simple and effective way to find and get what you want in just few taps of your fingers. " />
+    <meta name="robots" content= "index, follow">
+    
+    <link rel="icon" type="image/svg-xml" href="./img/favicn.png" />
+
+  </head>
+  
+  <body>
+    
+    <div class="container">
+      <div class="user">
+        <i class="fas fa-graduation-cap"></i>
+        &nbsp; {{ college }}
+      </div>
+      <!-- search area -->
+      <div class="search-area">
+        
+          
+  
+            <div class="input-div one">
+            <div class="div">
+              <h5><i class="fa fa-search"></i> Search Notes</h5>
+              <input required type="text" name="search"  onkeyup="search_animal()" class="username input" id="searchbar" />
+            
+          </div>
+        
+        </div>
+        <div class="filter">
+          <form action="/notes/filter" method="post" style="text-align: center;">
+            <select name="filter">
+              <option value="high to low downloads">high to low downloads</option>
+              <option value="low to high downloads">low to high downloads</option>
+              <option value="latest to old date">latest to old date</option>
+              <option value="old to latest date">old to latest date</option>
+              <option value="max to min pages">max to min pages</option>
+              <option value="min to max pages">min to max pages</option>
+            </select>
+          <button type="submit" >Filter</button>
+        </form>
+   
+      </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Downloads</th>
+            <th>Pages</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each notesList}}
+          <tr class="priority-200 userx">
+            <td class="userxname"><i class="fas fa-folder"></i>&nbsp; {{this.originalname}}</td>
+            <td>{{this.uploadedAt}}</td>
+            <td><i class="fas fa-circle"></i>{{this.downloads}}</td>
+            <td>{{this.filePages}}</td>
+            <td>
+              <a onclick="downloadNotes('{{this._id}}')" href="{{this.destination}}/{{this.filename}}" download="{{this.originalname}}">
+              <button class="delete"><i class="fas fa-download"></i></button>
+              </a>
+            </td>
+          </tr>
+          {{/each}}
+          </tbody>
+      </table>
+      <button type="submit" class="add-btn"><a class="nav-link" style="text-decoration: none;color:#fff;" href="/notesinfo">
+        <!-- <i class="fas fa-plus"></i></a> -->
+        new
+      </button>
+    </div>
+
+    <script>
+      const downloadNotes = (id) => {
+        console.log(id)
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/notes/download", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        const data = {id:id};
+        xhr.send(JSON.stringify(data));
+      } 
+    </script>
+    <script type="text/javascript" src="/js/login.js"></script>
+     <script>
+        // JavaScript code 
+    function search_animal() { 
+        let input = document.getElementById('searchbar').value 
+        input=input.toLowerCase(); 
+        let x = document.getElementsByClassName('userx'); 
+        let y = document.getElementsByClassName('userxname'); 
+        for (i = 0; i < y.length; i++) {  
+            if (!y[i].innerHTML.includes(input)) { 
+                x[i].style.display="none"; 
+               
+            } 
+            else{
+              x[i].style.display="table-row";
+            }
+        } 
+       
+    }
+        </script> 
+  </body>
+</html>

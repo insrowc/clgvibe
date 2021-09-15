@@ -1,0 +1,102 @@
+
+/* import fonts from fonts.css file */ 
+@import url(./fonts.css);
+
+/* box */ 
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+/* css variables */ 
+@import url(./partials/_variables.css);
+
+/* import global styling */ 
+@import url(./partials/_global.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+
+:root {
+    font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html{
+	scroll-behavior: smooth;
+  }
+  
+  ::selection{
+	border-radius: 80px;
+	background-color: #fd5f03e0;
+  }
+  
+  ::-webkit-scrollbar{
+	border-radius: 80px;
+	width: 10px;
+	background-color: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+	border-radius: 80px;
+	background-color: #fd5f03de;
+  }
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    min-height: 100vh;
+    background-image: url(/img/back.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font: normal 500 30px;
+    color: #262626;
+    overflow-x: hidden;
+    padding-bottom: 3rem;
+}
+.profile-user-settings {
+  margin: auto;
+}
+.slider{
+  display: flex;
+  align-items: center;
+  margin: 2px 20px;
+  overflow-x: scroll;
+}
+.card{
+  border: none;
+  width: fit-content;
+  padding: 10px 40px;
+}
+.profile{
+  padding-bottom: 75px;
+}
+.profile-image{
+  margin: auto;
+  width: 118px;
+  height:118px;
+}
+.profile-image img{
+  width: 118px;
+}
+.but{
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  font-size: 15px;
+  background: #f93;
+  border-radius: 5px;
+
+}
+.but:hover{
+  color: #000;
+  background: #fff;
+  cursor: pointer;
+}
+@media screen and (max-width: 700px){
+  .card{
+    padding: 0px;
+  }
+}

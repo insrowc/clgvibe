@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/forgotpassword.css">
+    <link rel="icon" type="image/svg-xml" href="./img/favicn.png" />
+    <title>reset by email</title>
+</head>
+<style>
+.container{
+    margin-top: 12vw;
+}
+.input-div>div>input{
+    font-size: 1.2rem;
+}
+.input-div.focus > div > h5{
+	top: -20px;
+}
+.verify{
+    width: 40%;
+}
+@media only screen and (max-width: 600px) {
+  .container{
+      box-shadow: none;
+  }
+}
+</style>
+<body>
+    <div class="container">
+        <h3>Email Verification form:</h3>
+        <h4>{{message}}</h4>
+        <form action="/resetbyemail" method="post">
+        <div class="input-div one">
+            <div class="div">
+              <h5>Username</h5>
+        <input required type="text" autofocus autocomplete="off" name="username" class="username input" id="username" onkeyup="this.value = this.value.toLowerCase();"/>
+            </div>
+          </div>
+          <section class="link">
+             <button type="submit" class="verify">verify</button>
+        </section>
+        </form>
+    </div>
+</body>
+<script src="/js/login.js"></script>
+</html>

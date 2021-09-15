@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Profile</title>
+    <link rel="icon" type="image/svg-xml" href="./img/favicn.png" />
+    {{!-- <link rel="stylesheet" href="./css/profile.css" /> --}}
+    <link rel="stylesheet" href="./css/profile.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--fontawseom-->
+ <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+   <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+	></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+         <h1 class="profile-user-name text-center">{{ user.userName }}</h1>
+
+        <div class="profile">
+          <div class="profile-image">
+            <img
+              src="{{user.files.0.destination}}/{{user.files.0.originalname}}"
+              alt=""
+            />
+          </div>
+
+          <div class="profile-user-settings">
+           <div class="editprof">
+            <h1 class="profile-user-name">{{ user.fullName }}</h1>
+
+            {{!-- <button class="btn profile-edit-btn">
+              <a href="/editprofile">Edit Profile</a>
+            </button> --}}
+
+            <button
+              class="btn profile-settings-btn"
+              aria-label="profile settings"
+            >
+             <a href="/editprofile"><i class="fas fa-cog" aria-hidden="true"></i></a>
+
+            </button>
+      </div>    
+
+          <div class="profile-stats">
+            <ul>
+              <li>
+                <span class="profile-stat-count">{{ fitLength }}</span> Vibes
+              </li>
+              <!-- <li><span class="profile-stat-count">1909</span> followers</li>
+						<li><span class="profile-stat-count">1119</span> following</li> -->
+            </ul>
+    </div>
+    </div>
+</div>
+          <div class="profile-bio">
+             <h2 class="profile-college-name">{{ user.collegeName }}</h2>
+            {{!-- <p>
+              <span class="profile-real-name">Shaktiman </span> Lorem ipsum
+              dolor sit, amet consectetur adipisicing elit
+              <i class="fas fa-heart" aria-hidden="true"></i>
+            </p> --}}
+          </div>
+          </div>
+    </header>
+    <hr>
+    <main>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          {{!-- <ul id="filter-list">
+            <li onclick="allposts()" class="filter" data-filter="all">
+              <i class="fas fa-camera-retro"></i>
+            </li>
+            <li onclick="imagesposts()" class="filter" data-filter="1">
+              <i class="far fa-images"></i>
+            </li>
+            <li onclick="textposts()" class="filter" data-filter="2">
+              <i class="fas fa-quote-left"></i>
+            </li>
+          </ul> --}}
+          <h3>Vibes:</h3>
+        </div>
+      </div>
+      <div class="gallery-outer">
+        <ul
+          class="gallery-items"
+      
+        >
+          <li
+            class="filtr-item"
+            data-category="1"
+            style="
+              opacity: 1;
+              transform: scale(1) translate3d(0px, 0px, 0px);
+              backface-visibility: hidden;
+              perspective: 1000px;
+              transform-style: preserve-3d;
+              position: absolute;
+              transition: all 0.5s ease-in-out 0ms;
+              pointer-events: auto;
+            "
+          >
+            <div class="gallery-inner">
+              <img src="postpic" alt="" />
+              <div class="gallery-overlay">
+                <a
+                  href="img/back (1).jpg"
+                  class="venobox vbox-item"
+                  data-gall="gallery"
+                  ><i class="fa fa-picture-o"></i
+                ></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- jQuery -->
+      <script src="./js/jquery-3.3.1.min.js"></script>
+      <script src="./js/popper.min.js"></script>
+      <script src="./js/script.js"></script>
+
+      <!-- backend api script -->
+      <script>
+        const gallery = document.querySelector(".gallery-items");
+        let posts = [],post;
+        fetch(`https://www.clgvibe.com/allposts`)
+          .then((res) => res.json())
+          .then((res) => {
+            posts = res;
+            gallery.innerHTML = "";
+            res.map((fit) => {
+              if(fit.file){
+               if (fit.file.mimetype && fit.file.mimetype.includes("video")){
+              var post = `
+                  <li style='list-style:none;' >
+                    <div class="text-center">
+                    <video src='${fit.file.destination}/${fit.file.originalname}' style="height: 160px; object-fit: contain;" controls></video>              
+                    <p style="font-size: 1.5rem; padding: 1rem;overflow-wrap: anywhere;">${fit.message}   
+                     <br> <i class="fas fa-thumbs-up" aria-hidden="true" style="margin-left:10px;color:#f93;"> ${fit.likescount}</i> 
+                      <i class="fas fa-comment" aria-hidden="true" style="color:#f93;">  ${fit.commentsCount} </i>
+                       <a href="/deletefit?id=${fit._id}" class="btn5" style="color:crimson;"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    </p>    
+                    </div>
+                     
+                  </li>
+                  <hr>
+        
+                `;}
+                else{
+                  var post = `
+                  <li style='list-style:none;' >
+                    <div class="text-center">
+                    <img style="height: 160px; object-fit: contain;" src="${fit.file.destination}/${fit.file.originalname}"
+                      alt="hrllo"
+                    />
+                    <p style="font-size: 1.5rem; padding: 1rem; overflow-wrap: anywhere;">${fit.message}
+                      <br> <i class="fas fa-thumbs-up" aria-hidden="true" style="margin-left:10px;color:#f93;"> ${fit.likescount}</i> 
+                      <i class="fas fa-comment" aria-hidden="true" style="color:#f93;">  ${fit.commentsCount} </i>
+                       <a href="/deletefit?id=${fit._id}" class="btn5" style="color:crimson;"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    </p>
+                    
+                    </div>
+                  </li>
+                 <hr>
+                `;
+                }
+              }
+              else{
+                var post = `
+                  <li style='list-style:none;' >
+                    <div class="">
+                      <p style="font-size: 1.5rem; padding: 1rem;">${fit.message}</p>
+                      <div style="font-size: 1.8rem; padding: 0 1rem;">
+                     <i class="fas fa-thumbs-up" aria-hidden="true" style="margin-left:10px;color:#f93;"> ${fit.likescount}</i> 
+                      <i class="fas fa-comment" aria-hidden="true" style="color:#f93;">  ${fit.commentsCount} </i>
+                       <a href="/deletefit?id=${fit._id}" class="btn5" style="color:crimson;"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                    </div>
+                    
+                    </div>
+                    
+                  </li>
+                  <hr>
+                `;
+              }
+              gallery.insertAdjacentHTML("beforeend", post);
+            });
+          })
+          .catch((error) => {
+            console.warn(error);
+          });
+          
+      
+      </script>
+    </main>
+  </body>
+</html>
+<!--  -->

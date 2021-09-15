@@ -1,0 +1,399 @@
+
+/* import fonts from fonts.css file */ 
+/* @import url(./fonts.css); */
+
+/* box */ 
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap');
+
+/* css variables */ 
+@import url(./partials/_variables.css);
+
+/* import global styling */ 
+@import url(./partials/_global.css);
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+/* @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap'); */
+
+html{
+	scroll-behavior: smooth;
+  }
+  
+  ::selection{
+	border-radius: 80px;
+	background-color: #fd5f03e0;
+  }
+  
+  ::-webkit-scrollbar{
+	border-radius: 80px;
+	width: 10px;
+	background-color: #f1f1f1;
+  }
+  
+  ::-webkit-scrollbar-thumb{
+	border-radius: 80px;
+	background-color: #fd5f03de;
+  }
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family:'Open Sans', sans-serif;
+  font: normal 200 20px 'Open Sans';
+}
+body{
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* min-height: 100vh; */
+  /* overflow: hidden; */
+  background: url("https://cdn.dribbble.com/users/76620/screenshots/3947591/playground-textured.gif");
+  
+  /* background: url("../img/images/oie_WWik2GpSJnex.gif"), url("https://media.istockphoto.com/photos/pink-orange-and-yellow-defocused-blurred-motion-abstract-background-picture-id1192998032?k=6&m=1192998032&s=612x612&w=0&h=pBgwbaSU1Ah6B6W1BCDJtMXI7fIhnvF8AdKhkIWVpJc="); */
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center; 
+  
+}
+::selection{
+  color: #fff;
+  background: #ff8f4e;
+}
+.spcbwt{
+  display: flex;
+  justify-content: center;
+}
+.avatar{
+  margin-top: 10px;
+  width: 110px;
+  margin-right: 100px;
+  height: 110px;
+  border-radius: 50%;
+}
+.avatar2{
+  width: 110px;
+  margin-left: 200px;
+  height: 110px;
+  border-radius: 10px;
+}
+form .Upload1{
+  margin-top: 1px;
+  z-index: 2;
+  color: #fff;
+  background-color: #ff7d12b6;
+  border: none;
+  border-radius: 200px;
+  font-size: 10px;
+  width: 50px;
+  height: 50px;
+  margin-left: -150px;
+}
+
+form .Upload1:hover{
+  background-color: #c0c0c0d7;
+}
+.container{
+  width: 665px;
+  /* border: 1px solid gray; */
+  text-align: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-color: #ffffff;
+  box-shadow: black;
+  padding: 5px 35px 0px 35px;
+  margin-top: -3px;
+  margin-top:-10px;
+}
+.container header{
+  font-size: 25px;
+  font-weight: 700;
+  margin: 0px;
+}
+.container .form-outer{
+  width: 100%;
+  overflow: hidden;
+}
+.container .form-outer form{
+  display: flex;
+  width: 400%;
+}
+.form-outer form .page{
+  width: 25%;
+  transition: margin-left 0.3s ease-in-out;
+}
+.form-outer form .page .title{
+  text-align: left;
+  font-size: 19px;
+  font-weight: 500;
+}
+.form-outer form .page .field{
+  width: 330px;
+  height: 45px;
+  margin: 45px auto;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+form .page .field .label{
+  position: absolute;
+  top: -30px;
+  font-weight: 500;
+}
+form .page .field input{
+  height: 80%;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  padding-left: 15px;
+  font-size: 18px;
+}
+form .page .field select{
+  background-color: #ffffff68;
+  border-radius: 5px;
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+form .page .field option{
+  background-color: #fff;
+  border-radius: 50px;
+  width: 100%;
+  padding-left: 10px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.demo{
+  color:red;
+  font-size: 10px ;
+}
+
+
+/* file choose */
+.flabl{
+  margin-left: 48%;
+    padding: 6px 5px;
+    border-radius: 5px;
+    color: #f1e5e6;
+  background-color: #ff9933;
+}
+.flabl > span{
+  font-size: 13px;
+}
+
+
+/* end file choose */
+
+
+
+
+form .page .field button{
+  width: 50%;
+  height: calc(100% + 5px);
+  border: none;
+  background: #ff9933;
+  margin: 0 auto;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+}
+form .page .field button:hover{
+  background: #2d252bd7;
+}
+form .page .btns button{
+  margin-top: -20px!important;
+}
+form .page .btns button.prev{
+  margin-right: 3px;
+  font-size: 17px;
+}
+form .page .btns button.next{
+  margin-left: 3px;
+}
+.container .progress-bar{
+  display: flex;
+margin: 10px 0;
+user-select: none;
+}
+.container .progress-bar .step{
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.container .progress-bar .step p{
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.progress-bar .step .bullet{
+  height: 25px;
+  width: 25px;
+  border: 2px solid #ddddddde;
+  display: inline-block;
+  border-radius: 50%;
+  position: relative;
+  transition: 0.2s;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 25px;
+}
+.progress-bar .step .bullet.active{
+  border-color: #ff7d12b6;
+  background: #ff7d12b6;
+}
+.progress-bar .step .bullet span{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.progress-bar .step .bullet.active span{
+  display: none;
+}
+.progress-bar .step .bullet:before,
+.progress-bar .step .bullet:after{
+  position: absolute;
+  content: '';
+  bottom: 11px;
+  right: -140px;
+  height: 3px;
+  width: 140px;
+  background: #ffffffad;
+}
+.progress-bar .step .bullet.active:after{
+  background: #ff7d12b6;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+@keyframes animate {
+  100%{
+    transform: scaleX(1);
+  }
+}
+.progress-bar .step:last-child .bullet:before,
+.progress-bar .step:last-child .bullet:after{
+  display: none;
+}
+.progress-bar .step p.active{
+  color: #ff7d12b6;
+  transition: 0.2s linear;
+}
+.progress-bar .step .check{
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  font-size: 15px;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+.progress-bar .step .check.active{
+  display: block;
+  color: #fff;
+}
+
+
+@media screen and (max-width: 980px){
+  body{
+    background: none;
+  }
+  .container{
+    width: 100%;
+    padding: 60px 50px 50px 50px;
+  }
+  .container header{
+    margin: 50px;
+    font-size: 40px;
+  }
+  .demo{
+    color:red;
+    font-size: 20px ;
+  }
+  .form-outer form .page .title {
+    margin: 50px;
+    font-size: 40px;
+  }
+  .spcbwt{
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 9rem;
+  }
+  form .page .field select{
+    font-size: 21px;
+    margin-top: 16px;
+    height: 46px;
+  }
+  .container .progress-bar .step p {
+    font-size: 25px;
+  }
+  .avatar{
+    display: block;
+    margin: 0 auto;
+    width: 180px;
+    height: 176px;
+  }
+  .avatar2{
+    margin-left: 0px;
+    width: 150px;
+    margin-bottom: 15px;
+    height: 150px;
+  }
+  .flabl{
+    margin-left: 0px;
+    padding: 16px 6px;
+  }
+  .flabl span{
+    font-size: 24px;
+  }
+  form .Upload1{
+    display: block;
+    margin: -20px auto;
+  }
+  .progress-bar .step .bullet:before,
+  .progress-bar .step .bullet:after {
+    position: absolute;
+    content: '';
+    bottom: 11px;
+    right: -195px;
+    height: 3px;
+    width: 212px;
+    background: #ffffffad;
+}
+form .page .field .label {
+  font-size: 2rem;
+  top: -40px;
+}
+form .page button.next {
+  font-size: 2rem;
+}
+form .page .btns button.next {
+  margin-left: 3px;
+  font-size: 2rem;
+}
+form .page .btns button.prev {
+  margin-right: 3px;
+  font-size: 2rem;
+}
+form .page .btns button.submit {
+  margin-right: 3px;
+  font-size: 2rem;
+}
+form .page .field input {
+  height: 100%;
+  width: 100%;
+  font-size: 2rem;
+}
+.form-outer form .page .field {
+  width: 70%;
+  height: 80px;
+  margin: 70px auto;
+  margin-bottom: 2px;
+}
+}
